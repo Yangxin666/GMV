@@ -19,7 +19,7 @@ Using benchmark tasks, we experimentally verify that GMVs can significantly redu
 ## Organization of the code
 
 All the code for the models described in the paper can be found in *codes/GVInf.py*, *codes/GVInf-all.py*, *codes/GVInf-ran.py*, *codes/GVInf-nomin.py*, and *codes/Utilities.py*. 
-We provide the datasets (in *Datasets* folder) and pre-trained GNNs models (in *Pre_Trained* folder) used in our experiments for users to validate our proposed methods located Datasets folder.
+We provide the datasets (in *Datasets* folder) and pre-trained GNNs models (in *Pre_Trained_GNNs* folder) used in our experiments for users to validate our proposed methods located Datasets folder.
 
 ## Prerequisites
 Our code is based on Python3 (>= 3.11). The major libraries are listed as follows:
