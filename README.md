@@ -15,6 +15,14 @@ model views (GMVs). Based on GMVs, we study three fundamental problems:
 
 Using benchmark tasks, we experimentally verify that GMVs can significantly reduce the inference cost and scale graph inference to billion-scale graphs. We showcase the applications of GMV in cyber attack detection and bitcoin transaction anomaly detection.
 
+<p align="center"><img src="Motivation.png"></p>
+  
+**Fig. 1: GNNs-based Molecular Property Prediction referring to “views” V1 and V2 only to answer inference query 𝑄.**
+
+
+<p align="center"><img src="GVinf_Illustration.png"></p>
+  
+**Fig. 2:  A illustration of View-based Inference. The inference for test node 𝑎1 in 𝐺3 (𝑎1) is “simulated” by a counterpart for 𝑎′ that 3-bisimilar to 𝑎_1 in a GMV, for GNN class M^3.**
 
 ## Organization of the code
 
