@@ -1,13 +1,17 @@
-# common.py
+"""
+Shared utilities functions for all GVInf variants
+"""
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import random
 import time
-import numpy as np
 from torch_geometric.data import Data
 from torch_geometric.nn import GCNConv
 from torch_geometric.utils import k_hop_subgraph
+import numpy as np
+from collections import defaultdict
 
 # ----------------------------
 # 2-layer GCN
@@ -48,6 +52,24 @@ def generate_views(data, num_views=500, max_hops=3):
     return views
 
 # ----------------------------
+# Accuracy
+# ----------------------------
+def compute_accuracy(logits, y, mask):
+    preds = logits.argmax(dim=1)
+    correct = preds[mask].eq(y[mask]).sum().item()
+    return correct / mask.sum().item()
+
+# ----------------------------
+# Full graph inference
+# ----------------------------
+def measure_inference_time(model, data):
+    start = time.time()
+    with torch.no_grad():
+        out = model(data.x, data.edge_index)
+    end = time.time()
+    return end - start, out
+
+# ----------------------------
 # Training
 # ----------------------------
 def train(model, data, optimizer, epochs=200, device='cpu'):
@@ -63,48 +85,6 @@ def train(model, data, optimizer, epochs=200, device='cpu'):
         loss.backward()
         optimizer.step()
     return model
-
-# ----------------------------
-# Accuracy
-# ----------------------------
-def compute_accuracy(logits, y, mask):
-    preds = logits.argmax(dim=1)
-    correct = preds[mask].eq(y[mask]).sum().item()
-    return correct / mask.sum().item()
-
-# ----------------------------
-# Inference
-# ----------------------------
-def measure_inference_time(model, data):
-    start = time.time()
-    with torch.no_grad():
-        out = model(data.x, data.edge_index)
-    end = time.time()
-    return end - start, out
-
-def measure_inference(model, data, device='cpu'):
-    model = model.to(device)
-    data.x = data.x.to(device)
-    data.edge_index = data.edge_index.to(device)
-    if hasattr(data, 'nodes'):
-        data.nodes = data.nodes.to(device)
-    if hasattr(data, 'y') and data.y is not None:
-        data.y = data.y.to(device)
-
-    if device.startswith('cuda'):
-        torch.cuda.reset_peak_memory_stats(device)
-
-    start = time.time()
-    with torch.no_grad():
-        out = model(data.x, data.edge_index)
-    end = time.time()
-
-    if device.startswith('cuda'):
-        mem = torch.cuda.max_memory_allocated(device) / (1024 ** 2)
-    else:
-        mem = (data.x.element_size() * data.x.nelement() +
-               data.edge_index.element_size() * data.edge_index.nelement()) / (1024 ** 2)
-    return end - start, out, mem
 
 # ----------------------------
 # GVMin helper
