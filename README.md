@@ -18,17 +18,16 @@ Using benchmark tasks, we experimentally verify that GMVs can significantly redu
 
 ## Organization of the code
 
-All the code for the models described in the paper can be found in *codes/Cora.ipynb*, *codes/Arxiv.ipynb*, *codes/Yelp.ipynb*, *codes/Products.ipynb*, and *codes/MAG_Synthetic_Generator.ipynb*. 
+All the code for the models described in the paper can be found in *codes/GVInf.py*, *codes/GVInf-all.py*, *codes/GVInf-ran.py*, *codes/GVInf-nomin.py*, and *codes/Utilities.py*. 
 We provide the datasets used in our experiments for users to validate our proposed methods located in: *Datasets.
 
 ## Prerequisites
 Our code is based on Python3 (>= 3.11). The major libraries are listed as follows:
-* NumPy (>= 1.26.3)
-* Pandas (>= 2.0.1)
-* Torch (>= 2.3.1)
-* PyG (PyTorch Geometric) (>= 2.0.4)
+* NumPy (>= 2.3.4)
+* Pandas (>= 2.3.2)
+* PyTorch (“torch”) (>= 2.9.0)
+* PyTorch Geometric (PyG) (>= 2.6.1) 
 * BisPy (>= 0.2.2)
-
 
 
 
