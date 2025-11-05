@@ -17,12 +17,12 @@ Using benchmark tasks, we experimentally verify that GMVs can significantly redu
 
 <p align="center"><img src="Motivation.png"></p>
   
-**Fig. 1: GNNs-based Molecular Property Prediction referring to “views” $V_1$ and $V_2$ only to answer inference query $𝑄$.**
+**Fig. 1: GNNs-based Molecular Property Prediction referring to “views” $\mathcal{V}_1$ and $\mathcal{V}_2$ only to answer inference query $Q$.**
 
 
 <p align="center"><img src="GVinf_Illustration.png"></p>
   
-**Fig. 2: A illustration of View-based Inference. The inference for test node $𝑎_1$ in $𝐺^3$ ($𝑎_1$) is “simulated” by a counterpart for $𝑎′$ that $3$-bisimilar to $𝑎_1$ in a GMV, for GNN class $M^3$.**
+**Fig. 2: A illustration of View-based Inference. The inference for test node $a_1$ in $G^3$ ($𝑎_1$) is “simulated” by a counterpart for $𝑎'$ that $3$-bisimilar to $a_1$ in a GMV, for GNN class $M^3$.**
 
 ## Organization of the code
 
