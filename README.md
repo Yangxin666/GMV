@@ -30,7 +30,7 @@ All the code for the models described in the paper can be found in *codes/GVInf.
 We provide the datasets (in *Datasets* folder) and pre-trained GNNs models (in *Pre_Trained_GNNs* folder) used in our experiments for users to validate our proposed methods located Datasets folder.
 
 ## Prerequisites
-Our code is based on Python 3 (>= 3.12). The major libraries and their version requirements are listed as follows for reference:
+Our codes are based on Python 3 (>= 3.12). The major libraries and their version requirements are listed as follows for reference:
 * NumPy (>= 2.3.4)
 * Pandas (>= 2.3.2)
 * PyTorch (“torch”) (>= 2.9.0)
