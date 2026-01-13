@@ -22,7 +22,7 @@ Using benchmark tasks, we experimentally verify that GMVs can significantly redu
 
 <p align="center"><img src="GVinf_Illustration.png"></p>
   
-**Fig. 2: A illustration of View-based Inference. The inference for test node $a_1$ in $G^3$ is “simulated” by a counterpart for $a'$ that $3$-bisimilar to $a_1$ in a GMV, for GNN class $M^3$.**
+**Fig. 2: A illustration of View-based Inference. The inference for test node $a_1$ in $G^3$ is “simulated” by a counterpart for $a'$ that 3-bisimilar to $a_1$ in a GMV, for GNN class $M^3$.**
 
 ## Organization of the code
 
